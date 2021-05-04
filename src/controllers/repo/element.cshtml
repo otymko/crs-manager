@@ -1,0 +1,41 @@
+<div class="card card-secondary">
+    <div class="card-header">
+        <h3 class="card-title">Новая запись</h3>
+    </div>
+    <form class="form-horizontal" action="/repo/add" method="POST">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="repoId">Идентификатор</label>
+                <input type="number" class="form-control" id="repoId" readonly>
+            </div>
+            <div class="form-group">
+                <label for="repoName">Имя</label>
+                <input type="text" class="form-control" id="repoName" placeholder="Введите имя хранилища">
+            </div>
+            <div class="form-group">
+                <label for="repoURL">Ссылка</label>
+                <input type="text" class="form-control" id="repoURL" placeholder="Введите URL адрес хранилища">
+            </div>
+            <div class="form-group">
+                <label for="repoUser">Пользователь</label>
+                <input type="text" class="form-control" id="repoUser" placeholder="Введите пользователя хранилища">
+            </div>
+            <div class="form-group">
+                <label for="repoPassword">Пароль</label>
+                <input type="password" class="form-control" id="repoPassword" placeholder="Введите пользователя хранилища">
+            </div>
+            <div class="form-group">
+                <label for="repoComment">Комментарий</label>
+                <textarea id="repoComment" class="form-control" rows="2"></textarea>
+            </div>
+            <!-- <div class="form-group">
+                <label for="repoId">Идентификатор</label>
+                <input type="text" class="form-control" id="repoId" placeholder="">
+            </div> -->
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success">Записать</button>
+            <button type="submit" class="btn btn-default float-right" onclick="location.href='/repo/index';">Отмена</button>
+        </div>
+    </form>
+</div>

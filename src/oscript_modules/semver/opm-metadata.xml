@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<opm-metadata xmlns="http://oscript.io/schemas/opm-metadata/1.0">
+    <name>semver</name>
+    <version>0.5.2</version>
+    <author>Khorev Aleksey</author>
+    <author-email>Khorevaa@gmail.com</author-email>
+    <description>Эта библиотека облегчает работу с семантическими версиями</description>
+    <engine-version>1.0.18</engine-version>
+    <depends-on name="logos"/>
+    <depends-on name="strings"/>
+    <depends-on name="fluent"/>
+</opm-metadata>

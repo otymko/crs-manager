@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<opm-metadata xmlns="http://oscript.io/schemas/opm-metadata/1.0">
+    <name>entity</name>
+    <version>2.3.3.1</version>
+    <author>Nikita Gryzlov</author>
+    <author-email>nixel2007@gmail.com</author-email>
+    <description>entity</description>
+    <engine-version>1.2.0</engine-version>
+    <depends-on name="asserts" dev="false" version="1.3.0"/>
+    <depends-on name="fluent" dev="false" version="0.3.1"/>
+    <depends-on name="fs" dev="false" version="1.0.0"/>
+    <depends-on name="logos" dev="false" version="1.2.1"/>
+    <depends-on name="json" dev="false" version="1.1.1"/>
+    <depends-on name="decorator" dev="false" version="1.2.0"/>
+    <depends-on name="reflector" dev="false" version="0.6.1"/>
+    <depends-on name="semaphore" dev="false" version="1.0.1"/>
+    <depends-on name="sql" dev="false" version="1.1.1.2"/>
+    <depends-on name="strings" dev="false" version="0.5.0"/>
+    <depends-on name="1bdd" dev="true"/>
+    <depends-on name="1testrunner" dev="true"/>
+    <depends-on name="coverage" dev="true"/>
+</opm-metadata>
