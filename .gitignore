@@ -1,1 +1,2 @@
-oscript_modules/*
+.vscode
+src/oscript_modules
