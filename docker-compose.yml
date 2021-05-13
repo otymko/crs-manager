@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+    app:
+        build: .
+        ports:
+            - "5000:5000"
+        volumes:
+            - crs-manager-data:/app/data
+volumes:
+    crs-manager-data:
