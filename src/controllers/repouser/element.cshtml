@@ -1,0 +1,42 @@
+<div class="card card-secondary">
+    <div class="card-header">
+        <h3 class="card-title">@Model.ЗаголовокЗаписи</h3>
+    </div>
+    <form class="form-horizontal" action="/@Model.ТекущееХранилище/repouser/save" method="POST" autocomplete="off">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="userId">Идентификатор</label>
+                <input type="text" class="form-control" id="userId" name="ИдентификаторПользователя" value="@Model.Запись.ИдентификаторПользователя" readonly>
+            </div>
+            <div class="form-group">
+                <label for="repoId">Хранилище</label>
+                <input type="text" class="form-control" id="repoId" name="Хранилище" readonly value="@Model.Запись.Хранилище">
+            </div>
+            <div class="form-group">
+                <label for="userName">Имя</label>
+                <input type="text" class="form-control" id="userName" name="ИмяПользователя" autocomplete="off" placeholder="Введите имя пользователя" value="@Model.Запись.ИмяПользователя">
+            </div>
+            <div class="form-group">
+                <label for="userPassword">Пароль</label>
+                <input type="password" class="form-control" id="userPassword" name="ПарольПользователя" autocomplete="off" placeholder="Введите пароль пользователя">
+            </div>
+            <div class="form-group">
+                <label for="userRights">Права</label>
+                <!-- <input type="text" class="form-control" id="userRights" name="Права" value="@Model.Запись.Права"> -->
+                <select class="form-control" name="Права" value="@Model.Запись.Права">
+                    @foreach(var КлючЗначение in Model.СоответствиеРолейХранилища) {
+                        @if (@КлючЗначение.Значение == @Model.Запись.Права) {
+                            <option value="@КлючЗначение.Значение" selected>@КлючЗначение.Ключ</option>
+                        } else {
+                            <option value="@КлючЗначение.Значение">@КлючЗначение.Ключ</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success">Записать</button>
+            <button type="submit" class="btn btn-default float-right" onclick="location.href='/repouser/index';">Отмена</button>
+        </div>
+    </form>
+</div>

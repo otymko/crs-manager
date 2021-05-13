@@ -1,6 +1,6 @@
 <div class="card card-secondary">
     <div class="card-header">
-        <h3 class="card-title">Новая запись</h3>
+        <h3 class="card-title">@Model.ЗаголовокЗаписи</h3>
     </div>
     <form class="form-horizontal" action="/repo/save" method="POST">
         <div class="card-body">
@@ -9,8 +9,8 @@
                 <input type="number" class="form-control" name="Идентификатор" readonly  value=@Model.Запись.Идентификатор>
             </div>
             <div class="form-group">
-                <label for="Имя">Имя</label>
-                <input type="text" class="form-control" name="Имя" placeholder="Введите имя хранилища" value=@Model.Запись.Имя>
+                <label for="Имя">Наименование</label>
+                <input type="text" class="form-control" name="Имя" placeholder="Введите название хранилища" value=@Model.Запись.Имя>
             </div>
             <div class="form-group">
                 <label for="Ссылка">Ссылка</label>
@@ -32,10 +32,6 @@
                 <label for="Комментарий">Комментарий</label>
                 <textarea name="Комментарий" class="form-control" rows="2"></textarea>
             </div>
-            <!-- <div class="form-group">
-                <label for="repoId">Идентификатор</label>
-                <input type="text" class="form-control" name="repoId" placeholder="">
-            </div> -->
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-success">Записать</button>

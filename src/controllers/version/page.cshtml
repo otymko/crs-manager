@@ -1,1 +1,42 @@
-История версий
+<div class="card-body">
+    @if (@Model.ТекущееХранилище != null) {
+        <div class="form-group col-md-5 d-flex">
+            <label for="repoId">История хранилищ:</label>
+            <form action='' method="post" id="data_list_update" style="width: 300px; margin-left: 10px; margin-top: -7px;">
+                <select class="form-control" id="repoId" onchange="window.location.href = '/' + $('#repoId').val() + '/version';">
+                @foreach(var Хранилище in Model.СписокХранилищ) {
+                    @if (@Хранилище.Идентификатор == @Model.ТекущееХранилище) {
+                        <option value="@Хранилище.Идентификатор" selected>@Хранилище.Имя</option>
+                    } 
+                    else {
+                        <option value="@Хранилище.Идентификатор">@Хранилище.Имя</option>
+                    }
+                }
+                </select>
+            </form>
+        </div>
+    }
+    <table id="repousers" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Идентификатор</th>
+                <th>Номер</th>
+                <th>Дата</th>
+                <th>Пользователь</th>
+                <th>Комментарий</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ЭлементСписка in Model.Список)
+            {
+                <tr>
+                    <td>@ЭлементСписка.Идентификатор</td>
+                    <td>@ЭлементСписка.Номер</td>
+                    <td>@ЭлементСписка.Дата</td>
+                    <td>@ЭлементСписка.Пользователь</td>
+                    <td>@ЭлементСписка.Комментарий</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

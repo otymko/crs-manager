@@ -1,1 +1,59 @@
-Пользователи хранилищ
+<div class="card-body">
+    @if (@Model.ТекущееХранилище != null) {
+        <div class="form-group col-md-5 d-flex">
+            <label for="repoId">Хранилище:</label>
+            <form action='' method="post" id="data_list_update" style="width: 300px; margin-left: 10px; margin-top: -7px;">
+                <select class="form-control" id="repoId" onchange="window.location.href = '/' + $('#repoId').val() + '/repouser';">
+                @foreach(var Хранилище in Model.Хранилища) {
+                    @if (@Хранилище.Идентификатор == @Model.ТекущееХранилище) {
+                        <option value="@Хранилище.Идентификатор" selected>@Хранилище.Имя</option>
+                    } 
+                    else {
+                        <option value="@Хранилище.Идентификатор">@Хранилище.Имя</option>
+                    }
+                }
+                </select>
+            </form>
+        </div>
+        <div class="col-md-12 d-flex" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-primary btn-success" onclick="location.href='/@Model.ТекущееХранилище/repouser/add';"><i class="fa fa-plus"></i> Создать</button>
+        </div>
+    }
+    <table id="repousers" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Идентификатор</th>
+                <th>Имя</th>
+                <th>Права</th>
+                <th>Деактивирован</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ЭлементСписка in Model.Список)
+            {
+                <tr>
+                    <td>@ЭлементСписка.Идентификатор</td>
+                    <td>@ЭлементСписка.Имя</td>
+                    <td>@ЭлементСписка.ПредставлениеРоли()</td>
+                    <td>@ЭлементСписка.Удален</td>
+                    <td class="d-flex flex-row">
+                        <form method="post">
+                            <input type="hidden" name="Идентификатор" value=@ЭлементСписка.Идентификатор>
+                            @if (@ЭлементСписка.Имя != @Model.ПользовательХранилища) {
+                                <button type="submit" class="btn btn-edit" formaction="/@Model.ТекущееХранилище/repouser/@ЭлементСписка.Идентификатор"><i class="fa fa-edit"></i> Изменнить</button>
+                                @if (@ЭлементСписка.Удален) {
+                                    <button type="submit" class="btn btn-success"formaction="/@Model.ТекущееХранилище/repouser/enable"><i class="fas fa-toggle-on"></i> Вкл</button>
+                                } else {
+                                    <button type="submit" class="btn btn-danger"formaction="/@Model.ТекущееХранилище/repouser/disable"><i class="fas fa-toggle-off"></i> Выкл</button>    
+                                }
+                            } else {
+                                <p></p>
+                            }
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
