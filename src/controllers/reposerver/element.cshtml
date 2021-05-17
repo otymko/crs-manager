@@ -1,0 +1,33 @@
+<div class="card card-secondary">
+    <div class="card-header">
+        <h3 class="card-title">@Model.ЗаголовокЗаписи</h3>
+    </div>
+    <form class="form-horizontal" action="/reposerver/save" method="POST">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="Идентификатор">Идентификатор</label>
+                <input type="number" class="form-control" name="Идентификатор" readonly  value=@Model.Запись.Идентификатор>
+            </div>
+            <div class="form-group">
+                <label for="Имя">Наименование</label>
+                <input type="text" class="form-control" name="Имя" placeholder="Введите название сервера хранилищ" value=@Model.Запись.Имя>
+            </div>
+            <div class="form-group">
+                <label for="Адрес">Адрес</label>
+                <input type="text" class="form-control" name="Адрес" placeholder="Введите URL адрес сервера хранилищ" value=@Model.Запись.Адрес>
+            </div>
+            <div class="form-group">
+                <label for="ВерсияПлатформы">ВерсияПлатформы</label>
+                <input type="text" class="form-control" name="ВерсияПлатформы" placeholder="Введите версию платформы 1С" value=@Model.Запись.ВерсияПлатформы>
+            </div>
+            <div class="form-group">
+                <label for="Комментарий">Комментарий</label>
+                <textarea name="Комментарий" class="form-control" rows="2"></textarea>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success">Записать</button>
+            <button type="button" class="btn btn-default float-right" onclick="location.href='/reposerver/index';">Отмена</button>
+        </div>
+    </form>
+</div>

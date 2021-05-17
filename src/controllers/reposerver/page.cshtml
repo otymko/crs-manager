@@ -1,0 +1,34 @@
+<div class="card-body">
+    <div class="col-md-12 d-flex" style="margin-bottom: 10px;">
+        <button type="button" class="btn btn-primary btn-success" onclick="location.href='/reposerver/add';"><i class="fa fa-plus"></i> Добавить</button>
+    </div>
+    <table id="repos" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Наименование</th>
+                <th>Идентификатор</th>
+                <th>Адрес</th>
+                <th>Комментарий</th>
+                <th class="col-md-12 d-flex flex-row">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ЭлементСписка in Model.Список)
+            {
+                <tr>
+                    <td>@ЭлементСписка.Имя</td>
+                    <td>@ЭлементСписка.Идентификатор</td>
+                    <td>@ЭлементСписка.Адрес</td>
+                    <td>@ЭлементСписка.Комментарий</td>
+                    <td class="col-md-12 d-flex flex-row">
+                        <form method="post">
+                            <input type="hidden" name="Идентификатор" value=@ЭлементСписка.Идентификатор>
+                            <button type="submit" class="btn btn-edit" formaction="/reposerver/edit"><i class="fa fa-edit"></i> Изменнить</button>
+                            <button type="submit" class="btn btn-danger"formaction="/reposerver/remove"><i class="fa fa-trash"></i> Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
